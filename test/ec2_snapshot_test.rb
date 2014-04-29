@@ -9,7 +9,7 @@ class Ec2SnapshotTest < Test::Unit::TestCase
   end
 
   def test_snapshot_id
-    assert subject.snapshot_id == "SNAPSHOT    snap-0bfd0417"
+    assert subject.snapshot_id == "snap-0bfd0417"
   end
 
   def test_volume_id
@@ -23,4 +23,10 @@ class Ec2SnapshotTest < Test::Unit::TestCase
   def test_start_time
     assert subject.start_time == DateTime.new(2013, 12, 17, 21, 55, 25, '+0')
   end
+
+  def test_parse_ignores_lines_which_do_not_begin_with_SNAPSHOT
+    s = Ec2Snapshot.parse("TAG snapshot    snap-0bfd0417   Name    var-log-trafficland-template")
+    assert s.nil?
+  end
+
 end

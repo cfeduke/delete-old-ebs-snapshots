@@ -1,13 +1,14 @@
 #!/usr/bin/env ruby
 
 require "date"
+require "optparse"
 
 class Ec2SnapshotsParser
 
-  attr_reader :rows
+  attr_reader :snapshots
 
   def initialize(data)
-    @rows = data.each.map { |line| Ec2Snapshot.parse(line) }
+    @snapshots = data.each.map { |line| Ec2Snapshot.parse(line) }.reject(&:nil?)
   end
 
 end
@@ -16,11 +17,107 @@ class Ec2Snapshot
   attr_reader :snapshot_id, :volume_id, :status, :start_time, :progress, :owner_id, :volume_size, :description
 
   def initialize(arr)
-    @snapshot_id, @volume_id, @status, start_time, @progress, @owner_id, @volume_size, @description = arr
-    @start_time = DateTime.parse(start_time)
+    _, @snapshot_id, @volume_id, @status, start_time, @progress, @owner_id, @volume_size, @description = arr
+    begin
+      @start_time = DateTime.parse(start_time)
+    rescue ArgumentError => argument_error
+      if argument_error.message == "invalid date"
+        $stderr.puts "Invalid date format: #{start_time}"
+      else
+        $stderr.puts argument_error
+      end
+    end
   end
 
   def self.parse(line)
-    Ec2Snapshot.new(line.unpack("a28a16a12a28a8a16a4a*").map(&:strip))
+    return nil unless line.start_with?("SNAPSHOT")
+
+    Ec2Snapshot.new(line.unpack("a12a14a16a12a28a8a16a4a*").map(&:strip))
   end
 end
+
+class Filter
+  attr_reader :snapshots
+
+  def initialize(snapshots)
+    @snapshots = snapshots
+  end
+
+  def apply(hash)
+    @snapshots.select do |snapshot|
+      hash.map { |k,v| v.call(snapshot.send(k)) }.reduce(:&)
+    end
+  end
+end
+
+if __FILE__ == $0
+
+options = { :silent => true, :args => "-D" }
+option_parser = OptionParser.new do |opts|
+  opts.banner = "Usage: delete-old-ebs-snapshots --older-than-days DAYS [--description REGEX]"
+  opts.separator ""
+
+  opts.on("-o DAYS", "--older-than-days", "Older than DAYS days (from today)") do |days|
+    options[:days] = days.to_i
+  end
+  opts.on("-d REGEX", "--description", "Ruby compliant regular expression to filter the description against") do |pattern|
+    options[:description_regex] = Regexp.new(pattern)
+  end
+  opts.on("-s", "--silent", "Don't output non-error messages to STDOUT") do |silent|
+    options[:silent] = true
+  end
+  opts.on("-A ARGS", "--args", "Arguments to pass to ec2-delete-snapshot") do |args|
+    options[:args] = args
+  end
+  opts.separator ""
+
+  opts.on("-h", "--help", "Display this screen") do
+    puts opts
+    exit 1
+  end
+
+end
+
+option_parser.parse!
+
+begin
+  raise OptionParser::MissingArgument.new("older-than-days") if options[:days].nil?
+rescue Exception => ex
+  $stderr.puts ex.message
+  if options[:silent]
+    puts ""
+    puts option_parser
+  end
+end
+
+["ec2-describe-snapshots", "ec2-delete-snapshot"].each { |cmd|
+  $stderr.puts "No #{cmd} in $PATH" unless `which #{cmd}`
+}
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
