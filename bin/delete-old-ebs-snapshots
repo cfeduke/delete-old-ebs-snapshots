@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require "date"
+
+class Ec2SnapshotsParser
+
+  attr_reader :rows
+
+  def initialize(data)
+    @rows = data.each.map { |line| Ec2Snapshot.parse(line) }
+  end
+
+end
+
+class Ec2Snapshot
+  attr_reader :snapshot_id, :volume_id, :status, :start_time, :progress, :owner_id, :volume_size, :description
+
+  def initialize(arr)
+    @snapshot_id, @volume_id, @status, start_time, @progress, @owner_id, @volume_size, @description = arr
+    @start_time = DateTime.parse(start_time)
+  end
+
+  def self.parse(line)
+    Ec2Snapshot.new(line.unpack("a28a16a12a28a8a16a4a*").map(&:strip))
+  end
+end
