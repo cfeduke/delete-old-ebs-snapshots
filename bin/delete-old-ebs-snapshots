@@ -32,7 +32,7 @@ class Ec2Snapshot
   def self.parse(line)
     return nil unless line.start_with?("SNAPSHOT")
 
-    Ec2Snapshot.new(line.unpack("a12a14a16a12a28a8a16a4a*").map(&:strip))
+    Ec2Snapshot.new(line.split("\t").map(&:strip))
   end
 end
 
@@ -52,47 +52,87 @@ end
 
 if __FILE__ == $0
 
-options = { :silent => true, :args => "-D" }
-option_parser = OptionParser.new do |opts|
-  opts.banner = "Usage: delete-old-ebs-snapshots --older-than-days DAYS [--description REGEX]"
-  opts.separator ""
+  options = { :args => "", :interactive => false }
+  option_parser = OptionParser.new do |opts|
+    opts.banner = "Usage: delete-old-ebs-snapshots --older-than-days DAYS [--description REGEX] [--interactive]"
+    opts.separator ""
 
-  opts.on("-o DAYS", "--older-than-days", "Older than DAYS days (from today)") do |days|
-    options[:days] = days.to_i
-  end
-  opts.on("-d REGEX", "--description", "Ruby compliant regular expression to filter the description against") do |pattern|
-    options[:description_regex] = Regexp.new(pattern)
-  end
-  opts.on("-s", "--silent", "Don't output non-error messages to STDOUT") do |silent|
-    options[:silent] = true
-  end
-  opts.on("-A ARGS", "--args", "Arguments to pass to ec2-delete-snapshot") do |args|
-    options[:args] = args
-  end
-  opts.separator ""
+    opts.on("-o DAYS", "--older-than-days", "Older than DAYS days (from today)") do |days|
+      options[:days] = days.to_i.abs
+    end
+    opts.on("-d REGEX", "--description", "Ruby compliant regular expression to filter the description against") do |pattern|
+      options[:description_regex] = Regexp.new(pattern)
+    end
+    opts.on("-i", "--interactive", "Prompt before deleting each eligible snapshot") do |silent|
+      options[:interactive] = true
+    end
+    opts.on("-A ARGS", "--args", "Arguments to pass to ec2-delete-snapshot") do |args|
+      options[:args] = args
+    end
+    opts.separator ""
 
-  opts.on("-h", "--help", "Display this screen") do
-    puts opts
+    opts.on("-h", "--help", "Display this screen") do
+      puts opts
+      exit 1
+    end
+
+  end
+
+  option_parser.parse!
+
+  begin
+    raise OptionParser::MissingArgument.new("older-than-days") if options[:days].nil?
+  rescue Exception => ex
+    $stderr.puts ex.message
+    if options[:silent]
+      puts ""
+      puts option_parser
+    end
+  end
+
+  ["ec2-describe-snapshots", "ec2-delete-snapshot"].each do |cmd|
+    unless `which #{cmd}`
+      $stderr.puts "No #{cmd} in $PATH"
+      exit 1
+    end
+  end
+
+  snapshots_data = `ec2-describe-snapshots`
+
+  unless $?.success?
+    $stderr.puts "ec2-describe-snapshots command execution failed"
     exit 1
   end
 
-end
-
-option_parser.parse!
-
-begin
-  raise OptionParser::MissingArgument.new("older-than-days") if options[:days].nil?
-rescue Exception => ex
-  $stderr.puts ex.message
-  if options[:silent]
-    puts ""
-    puts option_parser
+  filter = {}
+  frozen = DateTime.now - options[:days]
+  filter[:start_time] = Proc.new { |d| d <= frozen }
+  if options[:description_regex]
+    filter[:description] = Proc.new { |d| d =~ options[:description_regex] }
   end
-end
 
-["ec2-describe-snapshots", "ec2-delete-snapshot"].each { |cmd|
-  $stderr.puts "No #{cmd} in $PATH" unless `which #{cmd}`
-}
+  parser = Ec2SnapshotsParser.new(snapshots_data.split("\n"))
+
+  filtered = Filter.new(parser.snapshots).apply(filter)
+
+  total = filtered.length
+  puts "#{total} matching snapshots found"
+  
+  filtered.each_with_index do |s, i| 
+    should_delete = true
+    if options[:interactive]
+      print "Delete snapshot #{s.snapshot_id} (date: #{s.start_time}, description: #{s.description})? [Y/n] > "
+      response = gets.strip
+      should_delete = response.empty? || response.downcase == "y"
+    end
+    `ec2-delete-snapshot #{s.snapshot_id} #{options[:args]}` if should_delete
+    unless $?.success?
+      $stderr.puts "ec2-delete-snapshot command execution failed"
+      exit 1
+    end
+    puts "Deleted #{s.snapshot_id} (#{i + 1} of #{total})"
+  end
+
 
 end
 

@@ -8,7 +8,7 @@ class Ec2SnapshotsParserTest < Test::Unit::TestCase
   end
 
   def test_reads_all_rows
-    expected = 53
+    expected = 54
     subject { |s| assert(s.snapshots.length == expected, "Expected #{expected} snapshots, actually #{s.snapshots.length} snapshots") }
   end
 

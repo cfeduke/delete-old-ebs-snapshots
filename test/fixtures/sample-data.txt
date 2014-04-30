@@ -1,54 +1,55 @@
-SNAPSHOT    snap-0bfd0417   vol-5c4e732b    completed   2013-12-17T21:55:25+0000    100%    296106742331    10  ext4 formatted 10GB logging drive
-TAG snapshot    snap-0bfd0417   Name    var-log-trafficland-template
-SNAPSHOT    snap-0e339c1c   vol-9db1ced0    completed   2014-01-09T04:20:16+0000    100%    296106742331    25  Created by CreateImage(i-5057cf70) for ami-31043258 from vol-9db1ced0
-SNAPSHOT    snap-113c1916   vol-9c7f73d6    completed   2013-11-04T22:36:33+0000    100%    296106742331    15  Created by CreateImage(i-c8f92db5) for ami-1d8bd374 from vol-9c7f73d6
-SNAPSHOT    snap-11ef100d   vol-5c4e732b    completed   2013-12-17T20:14:10+0000    100%    296106742331    10  Created by CreateImage(i-a0a4f1dc) for ami-1b4f6672 from vol-5c4e732b
-SNAPSHOT    snap-16ef100a   vol-4db2803a    completed   2013-12-17T20:14:10+0000    100%    296106742331    25  Created by CreateImage(i-a0a4f1dc) for ami-1b4f6672 from vol-4db2803a
-SNAPSHOT    snap-2111e833   vol-3894e675    completed   2014-01-07T19:35:13+0000    100%    296106742331    25  Created by CreateImage(i-aad6498a) for ami-c591a6ac from vol-3894e675
-SNAPSHOT    snap-2288e432   vol-145a3759    completed   2013-12-26T20:18:49+0000    100%    296106742331    25  Created by CreateImage(i-8afc79aa) for ami-857258ec from vol-145a3759
-SNAPSHOT    snap-24a25c36   vol-c2b3c18f    completed   2014-01-07T18:03:24+0000    100%    296106742331    25  Created by CreateImage(i-d06af6f0) for ami-c196a1a8 from vol-c2b3c18f
-SNAPSHOT    snap-45663d18   vol-b839e3e0    completed   2013-05-22T22:24:37+0000    100%    296106742331    50  Created by CreateImage(i-65b00605) for ami-f7adc59e from vol-b839e3e0
-SNAPSHOT    snap-469bc01b   vol-27f7f17f    completed   2013-05-22T22:25:24+0000    100%    296106742331    7   Created by CreateImage(i-d6ea47ba) for ami-cbadc5a2 from vol-27f7f17f
-SNAPSHOT    snap-475ade55   vol-b63fdcc0    completed   2014-01-09T19:36:40+0000    100%    296106742331    25  Created by CreateImage(i-09975b27) for ami-edd8ee84 from vol-b63fdcc0
-SNAPSHOT    snap-48f02a5a   vol-62e90a14    completed   2014-01-08T19:50:35+0000    100%    296106742331    25  Created by CreateImage(i-634d804d) for ami-013c0a68 from vol-62e90a14
-SNAPSHOT    snap-4ff02a5d   vol-2ae90a5c    completed   2014-01-08T19:50:35+0000    100%    296106742331    10  Created by CreateImage(i-634d804d) for ami-013c0a68 from vol-2ae90a5c
-SNAPSHOT    snap-51ff9241   vol-145a3759    completed   2013-12-26T19:37:10+0000    100%    296106742331    25  Created by CreateImage(i-8afc79aa) for ami-e17d5788 from vol-145a3759
-SNAPSHOT    snap-52aaba41   vol-28eb6f65    completed   2014-01-06T14:56:19+0000    100%    296106742331    25  Created by CreateImage(i-05754278) for ami-2f023546 from vol-28eb6f65
-SNAPSHOT    snap-52c82447   vol-c79868b1    completed   2014-01-14T12:49:13+0000    100%    296106742331    25  Created by CreateImage(i-1034e83e) for ami-910737f8 from vol-c79868b1
-SNAPSHOT    snap-54e73a41   vol-7229593f    completed   2014-01-15T22:01:42+0000    100%    296106742331    25  Created by CreateImage(i-3e78eb1e) for ami-b58ebedc from vol-7229593f
-SNAPSHOT    snap-57aaba44   vol-18eb6f55    completed   2014-01-06T14:56:19+0000    100%    296106742331    50  Created by CreateImage(i-05754278) for ami-2f023546 from vol-18eb6f55
-SNAPSHOT    snap-5d07d84f   vol-9c5d21d1    completed   2014-01-08T15:21:19+0000    100%    296106742331    25  Created by CreateImage(i-fcfd64dc) for ami-614a7c08 from vol-9c5d21d1
-SNAPSHOT    snap-5f2f434f   vol-145a3759    completed   2013-12-26T19:49:40+0000    100%    296106742331    25  Created by CreateImage(i-8afc79aa) for ami-9d7d57f4 from vol-145a3759
-SNAPSHOT    snap-5fc8244a   vol-b19868c7    completed   2014-01-14T12:49:13+0000    100%    296106742331    10  Created by CreateImage(i-1034e83e) for ami-910737f8 from vol-b19868c7
-SNAPSHOT    snap-64f46477   vol-75ee8438    completed   2014-01-02T16:38:31+0000    100%    296106742331    25  Created by CreateImage(i-8551d9a5) for ami-13586c7a from vol-75ee8438
-SNAPSHOT    snap-6bff7c77   vol-4798030a    completed   2013-12-19T22:35:21+0000    100%    296106742331    25  Created by CreateImage(i-40cba33f) for ami-3983aa50 from vol-4798030a
-SNAPSHOT    snap-6f9b4d75   vol-5b3b2274    completed   2013-12-04T18:28:36+0000    100%    296106742331    25  
-SNAPSHOT    snap-76f52062   vol-80b6cecd    completed   2014-01-22T22:13:31+0000    100%    296106742331    25  Created by CreateImage(i-ea6105ca) for ami-17e5d87e from vol-80b6cecd
-SNAPSHOT    snap-782ea164   vol-9d8b10d0    completed   2013-12-20T02:01:12+0000    100%    296106742331    25  Created by CreateImage(i-f446ed8b) for ami-399eb750 from vol-9d8b10d0
-SNAPSHOT    snap-7eba9d6f   vol-0cd6b341    completed   2013-12-21T02:28:27+0000    100%    296106742331    25  Created by CreateImage(i-73833753) for ami-7d3d1514 from vol-0cd6b341
-SNAPSHOT    snap-825e9e90   vol-74572a39    completed   2014-01-08T03:04:17+0000    100%    296106742331    25  Created by CreateImage(i-9c26b9bc) for ami-9f7244f6 from vol-74572a39
-SNAPSHOT    snap-82a59996   vol-21ce3c57    completed   2014-01-27T11:40:47+0000    100%    296106742331    25  Created by CreateImage(i-ecfa23c2) for ami-df3807b6 from vol-21ce3c57
-SNAPSHOT    snap-8afd7396   vol-9547dcd8    completed   2013-12-20T02:12:32+0000    100%    296106742331    25  Created by CreateImage(i-90a2c0ef) for ami-4d91b824 from vol-9547dcd8
-SNAPSHOT    snap-8b45aa9e   vol-21ce3c57    completed   2014-01-14T14:07:49+0000    100%    296106742331    25  Created by CreateImage(i-ecfa23c2) for ami-ed0b3b84 from vol-21ce3c57
-SNAPSHOT    snap-8c597f9d   vol-00dcb94d    completed   2013-12-21T02:47:39+0000    100%    296106742331    25  Created by CreateImage(i-af7ace8f) for ami-853e16ec from vol-00dcb94d
-SNAPSHOT    snap-8da59999   vol-20ce3c56    completed   2014-01-27T11:40:47+0000    100%    296106742331    10  Created by CreateImage(i-ecfa23c2) for ami-df3807b6 from vol-20ce3c56
-SNAPSHOT    snap-92f5518e   vol-7b023f0c    completed   2013-12-18T21:23:40+0000    100%    296106742331    10  Created by CreateImage(i-8a7862f6) for ami-1be0c972 from vol-7b023f0c
-SNAPSHOT    snap-943f1a93   vol-d0717d9a    completed   2013-11-04T22:36:55+0000    100%    296106742331    15  Created by CreateImage(i-93b5fbe9) for ami-138bd37a from vol-d0717d9a
-SNAPSHOT    snap-95984e8f   vol-523b227d    completed   2013-12-04T18:28:54+0000    100%    296106742331    50  
-SNAPSHOT    snap-96984e8c   vol-553b227a    completed   2013-12-04T18:28:54+0000    100%    296106742331    25  
-SNAPSHOT    snap-97f5518b   vol-cb033ebc    completed   2013-12-18T21:23:40+0000    100%    296106742331    25  Created by CreateImage(i-8a7862f6) for ami-1be0c972 from vol-cb033ebc
-SNAPSHOT    snap-9c45eb8e   vol-74a9d639    completed   2014-01-09T04:50:33+0000    100%    296106742331    25  Created by CreateImage(i-8b44dcab) for ami-ef023486 from vol-74a9d639
-SNAPSHOT    snap-a465e3b8   vol-8ed1e9f9    completed   2013-12-19T20:20:50+0000    100%    296106742331    25  Created by CreateImage(i-ef32e790) for ami-d38aa3ba from vol-8ed1e9f9
-SNAPSHOT    snap-a5cf49b9   vol-45ba2508    completed   2013-12-19T19:59:21+0000    100%    296106742331    25  Created by CreateImage(i-5008662c) for ami-058ba26c from vol-45ba2508
-SNAPSHOT    snap-a765e3bb   vol-6bd2ea1c    completed   2013-12-19T20:20:50+0000    100%    296106742331    10  Created by CreateImage(i-ef32e790) for ami-d38aa3ba from vol-6bd2ea1c
-SNAPSHOT    snap-b17cbaa3   vol-17730e5a    completed   2014-01-08T01:44:02+0000    100%    296106742331    25  Created by CreateImage(i-7e049b5e) for ami-798abd10 from vol-17730e5a
-SNAPSHOT    snap-b245aaa7   vol-20ce3c56    completed   2014-01-14T14:07:50+0000    100%    296106742331    10  Created by CreateImage(i-ecfa23c2) for ami-ed0b3b84 from vol-20ce3c56
-SNAPSHOT    snap-bdc30faf   vol-f0b4c9bd    completed   2014-01-08T04:58:51+0000    100%    296106742331    25  Created by CreateImage(i-3cf9671c) for ami-c76751ae from vol-f0b4c9bd
-SNAPSHOT    snap-c1381dc6   vol-697e6a23    completed   2013-11-04T22:37:35+0000    100%    296106742331    6   Created by CreateImage(i-008a6a66) for ami-eb8bd382 from vol-697e6a23
-SNAPSHOT    snap-c37cfcdf   vol-39ef7474    completed   2013-12-19T22:07:16+0000    100%    296106742331    25  Created by CreateImage(i-78157b07) for ami-6b80a902 from vol-39ef7474
-SNAPSHOT    snap-ccba39d0   vol-f19c07bc    completed   2013-12-19T22:49:07+0000    100%    296106742331    25  Created by CreateImage(i-bc99c8c3) for ami-6582ab0c from vol-f19c07bc
-SNAPSHOT    snap-cd3316ca   vol-45707c0f    completed   2013-11-04T22:36:08+0000    100%    296106742331    15  Created by CreateImage(i-e7b4fa9d) for ami-198bd370 from vol-45707c0f
-SNAPSHOT    snap-e0a6b6f3   vol-03cf504e    completed   2014-01-06T14:55:19+0000    100%    296106742331    25  Created by CreateImage(i-42ff883e) for ami-4302352a from vol-03cf504e
-SNAPSHOT    snap-e404d6f6   vol-a6b95dd0    completed   2014-01-08T12:40:28+0000    100%    296106742331    25  Created by CreateImage(i-a5fe398b) for ami-df4274b6 from vol-a6b95dd0
-SNAPSHOT    snap-eb04d6f9   vol-4bb95d3d    completed   2014-01-08T12:40:28+0000    100%    296106742331    10  Created by CreateImage(i-a5fe398b) for ami-df4274b6 from vol-4bb95d3d
-SNAPSHOT    snap-ef3954ff   vol-145a3759    completed   2013-12-26T18:54:13+0000    100%    296106742331    25  Created by CreateImage(i-8afc79aa) for ami-5b7c5632 from vol-145a3759
+SNAPSHOT	snap-0927421b	vol-23b9c16e	completed	2014-01-10T15:50:01+0000	100%	296106742331	25	Created by CreateImage(i-851e7aa5) for ami-29754440 from vol-23b9c16e
+SNAPSHOT	snap-0bfd0417	vol-5c4e732b	completed	2013-12-17T21:55:25+0000	100%	296106742331	10	ext4 formatted 10GB logging drive
+TAG	snapshot	snap-0bfd0417	Name	var-log-trafficland-template
+SNAPSHOT	snap-0e339c1c	vol-9db1ced0	completed	2014-01-09T04:20:16+0000	100%	296106742331	25	Created by CreateImage(i-5057cf70) for ami-31043258 from vol-9db1ced0
+SNAPSHOT	snap-113c1916	vol-9c7f73d6	completed	2013-11-04T22:36:33+0000	100%	296106742331	15	Created by CreateImage(i-c8f92db5) for ami-1d8bd374 from vol-9c7f73d6
+SNAPSHOT	snap-11ef100d	vol-5c4e732b	completed	2013-12-17T20:14:10+0000	100%	296106742331	10	Created by CreateImage(i-a0a4f1dc) for ami-1b4f6672 from vol-5c4e732b
+SNAPSHOT	snap-16ef100a	vol-4db2803a	completed	2013-12-17T20:14:10+0000	100%	296106742331	25	Created by CreateImage(i-a0a4f1dc) for ami-1b4f6672 from vol-4db2803a
+SNAPSHOT	snap-2111e833	vol-3894e675	completed	2014-01-07T19:35:13+0000	100%	296106742331	25	Created by CreateImage(i-aad6498a) for ami-c591a6ac from vol-3894e675
+SNAPSHOT	snap-2288e432	vol-145a3759	completed	2013-12-26T20:18:49+0000	100%	296106742331	25	Created by CreateImage(i-8afc79aa) for ami-857258ec from vol-145a3759
+SNAPSHOT	snap-24a25c36	vol-c2b3c18f	completed	2014-01-07T18:03:24+0000	100%	296106742331	25	Created by CreateImage(i-d06af6f0) for ami-c196a1a8 from vol-c2b3c18f
+SNAPSHOT	snap-45663d18	vol-b839e3e0	completed	2013-05-22T22:24:37+0000	100%	296106742331	50	Created by CreateImage(i-65b00605) for ami-f7adc59e from vol-b839e3e0
+SNAPSHOT	snap-469bc01b	vol-27f7f17f	completed	2013-05-22T22:25:24+0000	100%	296106742331	7	Created by CreateImage(i-d6ea47ba) for ami-cbadc5a2 from vol-27f7f17f
+SNAPSHOT	snap-475ade55	vol-b63fdcc0	completed	2014-01-09T19:36:40+0000	100%	296106742331	25	Created by CreateImage(i-09975b27) for ami-edd8ee84 from vol-b63fdcc0
+SNAPSHOT	snap-48f02a5a	vol-62e90a14	completed	2014-01-08T19:50:35+0000	100%	296106742331	25	Created by CreateImage(i-634d804d) for ami-013c0a68 from vol-62e90a14
+SNAPSHOT	snap-4ff02a5d	vol-2ae90a5c	completed	2014-01-08T19:50:35+0000	100%	296106742331	10	Created by CreateImage(i-634d804d) for ami-013c0a68 from vol-2ae90a5c
+SNAPSHOT	snap-51ff9241	vol-145a3759	completed	2013-12-26T19:37:10+0000	100%	296106742331	25	Created by CreateImage(i-8afc79aa) for ami-e17d5788 from vol-145a3759
+SNAPSHOT	snap-52aaba41	vol-28eb6f65	completed	2014-01-06T14:56:19+0000	100%	296106742331	25	Created by CreateImage(i-05754278) for ami-2f023546 from vol-28eb6f65
+SNAPSHOT	snap-52c82447	vol-c79868b1	completed	2014-01-14T12:49:13+0000	100%	296106742331	25	Created by CreateImage(i-1034e83e) for ami-910737f8 from vol-c79868b1
+SNAPSHOT	snap-54e73a41	vol-7229593f	completed	2014-01-15T22:01:42+0000	100%	296106742331	25	Created by CreateImage(i-3e78eb1e) for ami-b58ebedc from vol-7229593f
+SNAPSHOT	snap-57aaba44	vol-18eb6f55	completed	2014-01-06T14:56:19+0000	100%	296106742331	50	Created by CreateImage(i-05754278) for ami-2f023546 from vol-18eb6f55
+SNAPSHOT	snap-5d07d84f	vol-9c5d21d1	completed	2014-01-08T15:21:19+0000	100%	296106742331	25	Created by CreateImage(i-fcfd64dc) for ami-614a7c08 from vol-9c5d21d1
+SNAPSHOT	snap-5f2f434f	vol-145a3759	completed	2013-12-26T19:49:40+0000	100%	296106742331	25	Created by CreateImage(i-8afc79aa) for ami-9d7d57f4 from vol-145a3759
+SNAPSHOT	snap-5fc8244a	vol-b19868c7	completed	2014-01-14T12:49:13+0000	100%	296106742331	10	Created by CreateImage(i-1034e83e) for ami-910737f8 from vol-b19868c7
+SNAPSHOT	snap-64f46477	vol-75ee8438	completed	2014-01-02T16:38:31+0000	100%	296106742331	25	Created by CreateImage(i-8551d9a5) for ami-13586c7a from vol-75ee8438
+SNAPSHOT	snap-6bff7c77	vol-4798030a	completed	2013-12-19T22:35:21+0000	100%	296106742331	25	Created by CreateImage(i-40cba33f) for ami-3983aa50 from vol-4798030a
+SNAPSHOT	snap-6f9b4d75	vol-5b3b2274	completed	2013-12-04T18:28:36+0000	100%	296106742331	25	
+SNAPSHOT	snap-76f52062	vol-80b6cecd	completed	2014-01-22T22:13:31+0000	100%	296106742331	25	Created by CreateImage(i-ea6105ca) for ami-17e5d87e from vol-80b6cecd
+SNAPSHOT	snap-782ea164	vol-9d8b10d0	completed	2013-12-20T02:01:12+0000	100%	296106742331	25	Created by CreateImage(i-f446ed8b) for ami-399eb750 from vol-9d8b10d0
+SNAPSHOT	snap-7eba9d6f	vol-0cd6b341	completed	2013-12-21T02:28:27+0000	100%	296106742331	25	Created by CreateImage(i-73833753) for ami-7d3d1514 from vol-0cd6b341
+SNAPSHOT	snap-825e9e90	vol-74572a39	completed	2014-01-08T03:04:17+0000	100%	296106742331	25	Created by CreateImage(i-9c26b9bc) for ami-9f7244f6 from vol-74572a39
+SNAPSHOT	snap-82a59996	vol-21ce3c57	completed	2014-01-27T11:40:47+0000	100%	296106742331	25	Created by CreateImage(i-ecfa23c2) for ami-df3807b6 from vol-21ce3c57
+SNAPSHOT	snap-8afd7396	vol-9547dcd8	completed	2013-12-20T02:12:32+0000	100%	296106742331	25	Created by CreateImage(i-90a2c0ef) for ami-4d91b824 from vol-9547dcd8
+SNAPSHOT	snap-8b45aa9e	vol-21ce3c57	completed	2014-01-14T14:07:49+0000	100%	296106742331	25	Created by CreateImage(i-ecfa23c2) for ami-ed0b3b84 from vol-21ce3c57
+SNAPSHOT	snap-8c597f9d	vol-00dcb94d	completed	2013-12-21T02:47:39+0000	100%	296106742331	25	Created by CreateImage(i-af7ace8f) for ami-853e16ec from vol-00dcb94d
+SNAPSHOT	snap-8da59999	vol-20ce3c56	completed	2014-01-27T11:40:47+0000	100%	296106742331	10	Created by CreateImage(i-ecfa23c2) for ami-df3807b6 from vol-20ce3c56
+SNAPSHOT	snap-92f5518e	vol-7b023f0c	completed	2013-12-18T21:23:40+0000	100%	296106742331	10	Created by CreateImage(i-8a7862f6) for ami-1be0c972 from vol-7b023f0c
+SNAPSHOT	snap-943f1a93	vol-d0717d9a	completed	2013-11-04T22:36:55+0000	100%	296106742331	15	Created by CreateImage(i-93b5fbe9) for ami-138bd37a from vol-d0717d9a
+SNAPSHOT	snap-95984e8f	vol-523b227d	completed	2013-12-04T18:28:54+0000	100%	296106742331	50	
+SNAPSHOT	snap-96984e8c	vol-553b227a	completed	2013-12-04T18:28:54+0000	100%	296106742331	25	
+SNAPSHOT	snap-97f5518b	vol-cb033ebc	completed	2013-12-18T21:23:40+0000	100%	296106742331	25	Created by CreateImage(i-8a7862f6) for ami-1be0c972 from vol-cb033ebc
+SNAPSHOT	snap-9c45eb8e	vol-74a9d639	completed	2014-01-09T04:50:33+0000	100%	296106742331	25	Created by CreateImage(i-8b44dcab) for ami-ef023486 from vol-74a9d639
+SNAPSHOT	snap-a465e3b8	vol-8ed1e9f9	completed	2013-12-19T20:20:50+0000	100%	296106742331	25	Created by CreateImage(i-ef32e790) for ami-d38aa3ba from vol-8ed1e9f9
+SNAPSHOT	snap-a5cf49b9	vol-45ba2508	completed	2013-12-19T19:59:21+0000	100%	296106742331	25	Created by CreateImage(i-5008662c) for ami-058ba26c from vol-45ba2508
+SNAPSHOT	snap-a765e3bb	vol-6bd2ea1c	completed	2013-12-19T20:20:50+0000	100%	296106742331	10	Created by CreateImage(i-ef32e790) for ami-d38aa3ba from vol-6bd2ea1c
+SNAPSHOT	snap-b17cbaa3	vol-17730e5a	completed	2014-01-08T01:44:02+0000	100%	296106742331	25	Created by CreateImage(i-7e049b5e) for ami-798abd10 from vol-17730e5a
+SNAPSHOT	snap-b245aaa7	vol-20ce3c56	completed	2014-01-14T14:07:50+0000	100%	296106742331	10	Created by CreateImage(i-ecfa23c2) for ami-ed0b3b84 from vol-20ce3c56
+SNAPSHOT	snap-bdc30faf	vol-f0b4c9bd	completed	2014-01-08T04:58:51+0000	100%	296106742331	25	Created by CreateImage(i-3cf9671c) for ami-c76751ae from vol-f0b4c9bd
+SNAPSHOT	snap-c1381dc6	vol-697e6a23	completed	2013-11-04T22:37:35+0000	100%	296106742331	6	Created by CreateImage(i-008a6a66) for ami-eb8bd382 from vol-697e6a23
+SNAPSHOT	snap-c37cfcdf	vol-39ef7474	completed	2013-12-19T22:07:16+0000	100%	296106742331	25	Created by CreateImage(i-78157b07) for ami-6b80a902 from vol-39ef7474
+SNAPSHOT	snap-ccba39d0	vol-f19c07bc	completed	2013-12-19T22:49:07+0000	100%	296106742331	25	Created by CreateImage(i-bc99c8c3) for ami-6582ab0c from vol-f19c07bc
+SNAPSHOT	snap-cd3316ca	vol-45707c0f	completed	2013-11-04T22:36:08+0000	100%	296106742331	15	Created by CreateImage(i-e7b4fa9d) for ami-198bd370 from vol-45707c0f
+SNAPSHOT	snap-e0a6b6f3	vol-03cf504e	completed	2014-01-06T14:55:19+0000	100%	296106742331	25	Created by CreateImage(i-42ff883e) for ami-4302352a from vol-03cf504e
+SNAPSHOT	snap-e404d6f6	vol-a6b95dd0	completed	2014-01-08T12:40:28+0000	100%	296106742331	25	Created by CreateImage(i-a5fe398b) for ami-df4274b6 from vol-a6b95dd0
+SNAPSHOT	snap-eb04d6f9	vol-4bb95d3d	completed	2014-01-08T12:40:28+0000	100%	296106742331	10	Created by CreateImage(i-a5fe398b) for ami-df4274b6 from vol-4bb95d3d
+SNAPSHOT	snap-ef3954ff	vol-145a3759	completed	2013-12-26T18:54:13+0000	100%	296106742331	25	Created by CreateImage(i-8afc79aa) for ami-5b7c5632 from vol-145a3759

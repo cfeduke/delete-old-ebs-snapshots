@@ -6,11 +6,11 @@ class FilterTest < Test::Unit::TestCase
 
   def subject(&block)
     data = <<-DATA
-SNAPSHOT    snap-0bfd0417   vol-5c4e732b    completed   2013-12-17T21:55:25+0000    100%    296106742331    10  ext4 formatted 10GB logging drive
-SNAPSHOT    snap-0e339c1c   vol-9db1ced0    completed   2014-01-09T04:20:16+0000    100%    296106742331    25  Created by CreateImage(i-5057cf70) for ami-31043258 from vol-9db1ced0
-SNAPSHOT    snap-113c1916   vol-9c7f73d6    completed   2013-11-04T22:36:33+0000    100%    296106742331    15  Created by CreateImage(i-c8f92db5) for ami-1d8bd374 from vol-9c7f73d6
-SNAPSHOT    snap-11ef100d   vol-5c4e732b    completed   2013-12-17T20:14:10+0000    100%    296106742331    10  Created by CreateImage(i-a0a4f1dc) for ami-1b4f6672 from vol-5c4e732b
-SNAPSHOT    snap-16ef100a   vol-4db2803a    completed   2013-12-17T20:14:10+0000    100%    296106742331    25  Created by CreateImage(i-a0a4f1dc) for ami-1b4f6672 from vol-4db2803a
+SNAPSHOT\tsnap-0bfd0417\tvol-5c4e732b\tcompleted\t2013-12-17T21:55:25+0000\t100%\t296106742331\t10\text4 formatted 10GB logging drive
+SNAPSHOT\tsnap-0e339c1c\tvol-9db1ced0\tcompleted\t2014-01-09T04:20:16+0000\t100%\t296106742331\t25\tCreated by CreateImage(i-5057cf70) for ami-31043258 from vol-9db1ced0
+SNAPSHOT\tsnap-113c1916\tvol-9c7f73d6\tcompleted\t2013-11-04T22:36:33+0000\t100%\t296106742331\t15\tCreated by CreateImage(i-c8f92db5) for ami-1d8bd374 from vol-9c7f73d6
+SNAPSHOT\tsnap-11ef100d\tvol-5c4e732b\tcompleted\t2013-12-17T20:14:10+0000\t100%\t296106742331\t10\tCreated by CreateImage(i-a0a4f1dc) for ami-1b4f6672 from vol-5c4e732b
+SNAPSHOT\tsnap-16ef100a\tvol-4db2803a\tcompleted\t2013-12-17T20:14:10+0000\t100%\t296106742331\t25\tCreated by CreateImage(i-a0a4f1dc) for ami-1b4f6672 from vol-4db2803a
     DATA
     snapshots = Ec2SnapshotsParser.new(data.split("\n")).snapshots
     block.call(Filter.new(snapshots))

@@ -4,7 +4,7 @@ require_relative "../bin/delete-old-ebs-snapshots"
 
 class Ec2SnapshotTest < Test::Unit::TestCase
   def subject
-    Ec2Snapshot.parse("SNAPSHOT    snap-0bfd0417   vol-5c4e732b    completed   2013-12-17T21:55:25+0000    100%    296106742331    10  ext4 formatted 10GB logging drive
+    Ec2Snapshot.parse("SNAPSHOT\tsnap-0bfd0417\tvol-5c4e732b\tcompleted\t2013-12-17T21:55:25+0000\t100%\t296106742331\t10\text4 formatted 10GB logging drive
 ")
   end
 
