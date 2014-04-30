@@ -66,7 +66,7 @@ if __FILE__ == $0
     opts.on("-i", "--interactive", "Prompt before deleting each eligible snapshot") do |silent|
       options[:interactive] = true
     end
-    opts.on("-A ARGS", "--args", "Arguments to pass to ec2-delete-snapshot") do |args|
+    opts.on("-A ARGS", "--args", "Arguments to pass to ec2-describe-snapshots and ec2-delete-snapshot") do |args|
       options[:args] = args
     end
     opts.separator ""
@@ -97,7 +97,7 @@ if __FILE__ == $0
     end
   end
 
-  snapshots_data = `ec2-describe-snapshots`
+  snapshots_data = `ec2-describe-snapshots #{options[:args]}`
 
   unless $?.success?
     $stderr.puts "ec2-describe-snapshots command execution failed"
