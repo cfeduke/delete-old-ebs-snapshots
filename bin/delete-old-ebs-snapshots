@@ -50,6 +50,28 @@ class Filter
   end
 end
 
+class AwsCliCommands
+  FAILURE_MESSAGE = "No 'aws' or 'ec2-describe-snapshots' or 'ec2-delete-snapshot' found in $PATH"
+  attr_reader :list_snapshots, :delete_snapshot
+  def initialize(aws_cli_args)
+    @is_valid_environment = true
+    if `which aws`
+      @list_snapshots = "aws ec2 describe-snapshots --output text #{aws_cli_args}"
+      @delete_snapshot = "aws ec2 delete-snapshot #{aws_cli_args} --snapshot-id "
+    elsif `which ec2-describe-snapshots` && `which ec2-delete-snapshot`
+      @list_snapshots = "ec2-describe-snapshots #{aws_cli_args}"
+      @delete_snapshot = "ec2-delete-snapshot #{aws_cli_args} "
+    else
+      @is_valid_environment = false
+    end
+  end
+
+  def is_valid?
+    @is_valid_environment
+  end
+
+end
+
 if __FILE__ == $0
 
   options = { :args => "", :interactive => false }
@@ -66,7 +88,7 @@ if __FILE__ == $0
     opts.on("-i", "--interactive", "Prompt before deleting each eligible snapshot") do |silent|
       options[:interactive] = true
     end
-    opts.on("-A ARGS", "--args", "Arguments to pass to ec2-describe-snapshots and ec2-delete-snapshot") do |args|
+    opts.on("-A ARGS", "--args", "Arguments to pass to AWS CLI tools") do |args|
       options[:args] = args
     end
     opts.separator ""
@@ -90,17 +112,17 @@ if __FILE__ == $0
     end
   end
 
-  ["ec2-describe-snapshots", "ec2-delete-snapshot"].each do |cmd|
-    unless `which #{cmd}`
-      $stderr.puts "No #{cmd} in $PATH"
-      exit 1
-    end
+  aws_cmds = AwsCliCommands.new(options[:args])
+
+  unless aws_cmds.is_valid?
+    $stderr.puts aws_cmds::FAILURE_MESSAGE
+    exit 1
   end
 
-  snapshots_data = `ec2-describe-snapshots #{options[:args]}`
+  snapshots_data = `#{aws_cmds.list_snapshots}`
 
   unless $?.success?
-    $stderr.puts "ec2-describe-snapshots command execution failed"
+    $stderr.puts "\"#{aws_cmds.list_snapshots}\" command execution failed"
     exit 1
   end
 
@@ -125,39 +147,15 @@ if __FILE__ == $0
       response = gets.strip
       should_delete = response.empty? || response.downcase == "y"
     end
-    `ec2-delete-snapshot #{s.snapshot_id} #{options[:args]}` if should_delete
-    unless $?.success?
-      $stderr.puts "ec2-delete-snapshot command execution failed"
-      exit 1
+    if should_delete
+      `#{aws_cmds.delete_snapshot} #{s.snapshot_id}`
+      unless $?.success? 
+        $stderr.puts "ec2-delete-snapshot command execution failed"
+        exit 1 
+      end 
+      puts "Deleted #{s.snapshot_id} (#{i + 1} of #{total})"
     end
-    puts "Deleted #{s.snapshot_id} (#{i + 1} of #{total})"
   end
 
-
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
