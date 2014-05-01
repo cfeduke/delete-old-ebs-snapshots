@@ -14,10 +14,15 @@ class Ec2SnapshotsParser
 end
 
 class Ec2Snapshot
+
   attr_reader :snapshot_id, :volume_id, :status, :start_time, :progress, :owner_id, :volume_size, :description
 
   def initialize(arr)
-    _, @snapshot_id, @volume_id, @status, start_time, @progress, @owner_id, @volume_size, @description = arr
+    if arr.first == "SNAPSHOTS"
+      _, @description, @owner_id, @progress, @snapshot_id, start_time, @status, @volume_id, @volume_size = arr
+    else
+      _, @snapshot_id, @volume_id, @status, start_time, @progress, @owner_id, @volume_size, @description = arr
+    end
     begin
       @start_time = DateTime.parse(start_time)
     rescue ArgumentError => argument_error
@@ -150,7 +155,7 @@ if __FILE__ == $0
     if should_delete
       `#{aws_cmds.delete_snapshot} #{s.snapshot_id}`
       unless $?.success? 
-        $stderr.puts "ec2-delete-snapshot command execution failed"
+        $stderr.puts "Deleting #{s.snapshot_id} failed"
         exit 1 
       end 
       puts "Deleted #{s.snapshot_id} (#{i + 1} of #{total})"
